@@ -56,4 +56,4 @@ jobs:
         with:
           args: "-tpng ${INPUT_PNG_OUTPUT_PATH}"
       - name: Display diagram
-        run: cat test_diagram.png
+        run: cat ${INPUT_PNG_OUTPUT_PATH}
