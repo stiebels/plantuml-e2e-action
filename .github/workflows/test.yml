@@ -1,5 +1,9 @@
-name: Test PlantUML Action
-on: [push, pull_request]
+name: Test PlantUML-E2E-Action
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   shellcheck:
@@ -16,9 +20,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-      - name: Render diagram
+      - name: Build & render diagram
         uses: ./
         with:
-          args: "-tpng test_diagram.puml"
+          args: "diagrams tests tests latest"
       - name: Display diagram
-        run: cat test_diagram.png
+        run: |
+          cat diagrams/tests.png
