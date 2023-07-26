@@ -24,5 +24,4 @@ jobs:
         with:
           args: "test_diagram.puml tests tests"
       - name: Display diagram
-        run: |
-          cat test_diagram.png
+        run: cat test_diagram.png
