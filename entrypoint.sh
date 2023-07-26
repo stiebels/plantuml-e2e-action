@@ -1,9 +1,9 @@
 #!/bin/sh -l
 
-export INPUT_PUML_OUTPUT_PATH=${1}
-export INPUT_PATH=${2}
-export INPUT_MODULE=${3}
-export INPUT_PY2PUML_VERSION=${4}
+export INPUT_PUML_OUTPUT_PATH="${1}"
+export INPUT_PATH="${2}"
+export INPUT_MODULE="${3}"
+export INPUT_PY2PUML_VERSION="${4}"
 
 if [ -z "$INPUT_PY2PUML_VERSION" ]; then
 	pip install py2puml
@@ -12,7 +12,7 @@ else
 fi
 
 py2puml "${INPUT_PATH}" "${INPUT_MODULE}" > "${INPUT_PUML_OUTPUT_PATH}"
-echo $(ls)
+ls
 
 
 if [ -z "$INPUT_VERSION" ]; then
