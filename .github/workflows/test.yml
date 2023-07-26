@@ -14,52 +14,15 @@ jobs:
     name: Process PlantUML diagram
     runs-on: ubuntu-latest
     env:
-      INPUT_PUML_OUTPUT_PATH: "test_diagram.puml"
-      INPUT_PNG_OUTPUT_PATH: "test_diagram.png"
-
+      PUML_OUTPUT_PATH: test_diagram.puml
+      PNG_OUTPUT_PATH: test_diagram.png
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - name: Update Pip
-        run: pip install -U pip
-      - name: Install required dependencies
-        run: pip install py2puml
-      - name: Build Class Diagram
-        id: build_class_diagram
-        run: |
-          export INPUT_PUML_OUTPUT_PATH=${{ env.INPUT_PUML_OUTPUT_PATH }}
-          export INPUT_PATH="tests"
-          export INPUT_MODULE="tests"
-          export INPUT_PNG_OUTPUT_PATH="test_diagram.png"
-
-          if test -f ${INPUT_PUML_OUTPUT_PATH}; then
-              py2puml ${INPUT_PATH} ${INPUT_MODULE} > ${INPUT_PUML_OUTPUT_PATH}_staging
-              update_class_diagram=$(
-                if [[ $(diff ${INPUT_PUML_OUTPUT_PATH}_staging ${INPUT_PUML_OUTPUT_PATH}) ]]; then
-                  echo "true"
-                else
-                  echo "false"
-                fi
-              )
-              if [ $update_class_diagram = "true" ]; then
-                mv ${INPUT_PUML_OUTPUT_PATH}_staging ${INPUT_PUML_OUTPUT_PATH}
-              else
-                rm ${INPUT_PUML_OUTPUT_PATH}_staging
-              fi
-          else
-              py2puml ${INPUT_PATH} ${INPUT_MODULE} > ${INPUT_PUML_OUTPUT_PATH}
-              update_class_diagram="true"
-          fi
-          echo "update_class_diagram=${update_class_diagram}" >> "$GITHUB_OUTPUT"
-      - name: Render diagram
+      - name: Build & render diagram
         uses: ./
         with:
-          args: echo "-tpng ${{ env.INPUT_PUML_OUTPUT_PATH }}"
+          args: "-tpng test_diagram.puml" "tests" "tests"
       - name: Display diagram
         run: |
-          echo $(ls)
-          cat ${{ env.INPUT_PNG_OUTPUT_PATH }}
+          cat test_diagram.png

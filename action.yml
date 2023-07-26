@@ -1,8 +1,11 @@
 name: PlantUML Action
 description: GitHub Action for drawing UML diagrams with PlantUML
 inputs:
-  version:
+  puml_version:
     description: PlantUML software version
+    required: false
+  py2puml_version:
+    description: py2puml python package version
     required: false
   path:
     description: the filepath to the domain following the py2puml definition
@@ -10,10 +13,6 @@ inputs:
   module:
     description: the module name of the domain following the py2puml definition
     required: true
-  png_output_path:
-    description: the filepath to the output PNG
-    default: class_diagram.png
-    required: false
   puml_output_path:
     description: the filepath to the output PUML
     default: class_diagram.puml
