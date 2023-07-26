@@ -13,6 +13,7 @@ else
 fi
 
 py2puml "${INPUT_PATH}" "${INPUT_MODULE}" > "${INPUT_PUML_OUTPUT_PATH}"
+cat test_diagram.puml
 
 if [ -z "$INPUT_VERSION" ]; then
 	wget -O /tmp/plantuml.jar "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download"
@@ -20,5 +21,4 @@ else
 	wget -O /tmp/plantuml.jar "http://sourceforge.net/projects/plantuml/files/plantuml.${INPUT_PUML_VERSION}.jar/download"
 fi
 
-#java -jar /tmp/plantuml.jar "-tpng ""${INPUT_PUML_OUTPUT_PATH}"
-java -jar /tmp/plantuml.jar "-tpng ./test_diagram.puml"
+java -jar /tmp/plantuml.jar
