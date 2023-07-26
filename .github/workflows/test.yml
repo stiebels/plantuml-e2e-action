@@ -1,0 +1,24 @@
+name: Test PlantUML Action
+on: [push, pull_request]
+
+jobs:
+  shellcheck:
+    name: Analyze shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Run shellcheck
+        run: bash -c 'shopt -s globstar nullglob; shellcheck **/*.sh'
+  process:
+    name: Process PlantUML diagram
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Render diagram
+        uses: ./
+        with:
+          args: "-tpng test_diagram.puml"
+      - name: Display diagram
+        run: cat test_diagram.png
