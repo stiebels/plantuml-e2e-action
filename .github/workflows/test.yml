@@ -13,17 +13,13 @@ jobs:
   process:
     name: Process PlantUML diagram
     runs-on: ubuntu-latest
-    env:
-      PUML_OUTPUT_PATH: test_diagram.puml
-      PNG_OUTPUT_PATH: test_diagram.png
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Build & render diagram
         uses: ./
         with:
-          args: "test_diagram.puml tests tests"
+          args: "diagrams tests tests latest"
       - name: Display diagram
         run: |
-          ls
-          cat test_diagram.png
+          cat diagrams/tests.png

@@ -6,17 +6,18 @@ inputs:
     required: false
   py2puml_version:
     description: py2puml python package version
-    required: false
+    default: "latest"
+    required: true
   path:
     description: the filepath to the domain following the py2puml definition
     required: true
   module:
     description: the module name of the domain following the py2puml definition
     required: true
-  puml_output_path:
-    description: the filepath to the output PUML
-    default: class_diagram.puml
-    required: false
+  output_dir:
+    description: the directory where the PNG should be saved to
+    default: diagrams
+    required: true
 runs:
   using: docker
   image: Dockerfile
