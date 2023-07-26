@@ -51,10 +51,9 @@ jobs:
               update_class_diagram="true"
           fi
           echo "update_class_diagram=${update_class_diagram}" >> "$GITHUB_OUTPUT"
-          echo $(ls)
       - name: Render diagram
         uses: ./
         with:
-          args: "-tpng ${INPUT_PNG_OUTPUT_PATH}"
+          args: "-tpng test_diagram.png"
       - name: Display diagram
         run: cat ${INPUT_PNG_OUTPUT_PATH}
