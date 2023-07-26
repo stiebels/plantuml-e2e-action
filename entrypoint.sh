@@ -21,4 +21,4 @@ else
 	wget -O /tmp/plantuml.jar "http://sourceforge.net/projects/plantuml/files/plantuml.${INPUT_PUML_VERSION}.jar/download"
 fi
 
-java -jar /tmp/plantuml.jar
+java -jar /tmp/plantuml.jar test_diagram.puml
