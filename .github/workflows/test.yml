@@ -22,7 +22,7 @@ jobs:
       - name: Build & render diagram
         uses: ./
         with:
-          args: "-tpng test_diagram.puml" "tests" "tests"
+          args: "test_diagram.puml tests tests"
       - name: Display diagram
         run: |
           cat test_diagram.png
