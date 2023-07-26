@@ -54,6 +54,6 @@ jobs:
       - name: Render diagram
         uses: ./
         with:
-          args: "-tpng test_diagram.png"
+          args: "-tpng test_diagram.puml"
       - name: Display diagram
         run: cat ${INPUT_PNG_OUTPUT_PATH}
