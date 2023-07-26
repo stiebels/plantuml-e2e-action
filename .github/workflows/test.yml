@@ -51,6 +51,7 @@ jobs:
               update_class_diagram="true"
           fi
           echo "update_class_diagram=${update_class_diagram}" >> "$GITHUB_OUTPUT"
+          echo $(ls)
       - name: Render diagram
         uses: ./
         with:
