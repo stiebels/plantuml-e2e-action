@@ -27,6 +27,11 @@ jobs:
       - name: Build Class Diagram
         id: build_class_diagram
         run: |
+          export INPUT_PUML_OUTPUT_PATH="test_diagram_puml"
+          export INPUT_PATH='tests/test_module'
+          export INPUT_MODULE='tests.test_module'
+          export INPUT_PNG_OUTPUT_PATH='test_diagram.png'
+
           if test -f ${INPUT_PUML_OUTPUT_PATH}; then
               py2puml ${INPUT_PATH} ${INPUT_MODULE} > ${INPUT_PUML_OUTPUT_PATH}_staging
               update_class_diagram=$(
