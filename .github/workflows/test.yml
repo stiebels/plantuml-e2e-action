@@ -1,5 +1,9 @@
-name: Test PlantUML Action
-on: [push, pull_request]
+name: Test PlantUML-E2E-Action
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   shellcheck:
