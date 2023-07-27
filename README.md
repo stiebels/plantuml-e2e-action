@@ -45,7 +45,6 @@ jobs:
 
 ## Parameters
 - See [here](https://sourceforge.net/projects/plantuml/files/) for a list of eligible versions to pass to `puml_version`.
-- See [here](https://pypi.org/project/py2puml/#history) for a list of eligible versions to pass to `py2puml_version`.
 - See [here](https://github.com/lucsorel/py2puml#cli) for a clear explanation on `path` and `module`, following the definition of `py2puml`.
 ```yaml
   puml_version:
