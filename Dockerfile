@@ -1,13 +1,20 @@
-FROM alpine:3.11
+FROM python:3.10-slim
 
-# Install plantuml dependencies as well as python
-RUN apk add --no-cache openjdk11-jre graphviz ttf-droid ttf-droid-nonlatin python3
+
+RUN apt-get update && apt-get install -y \
+    default-jdk \
+    default-jre \
+	ca-certificates \
+	wget \
+	graphviz \
+	fonts-droid-fallback
+
+ENV JAVA_HOME /lib/jvm/java-11-openjdk-amd64/bin/java
+
+RUN pip3 install --no-cache --upgrade pip
+
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD [ "-h" ]
 
-# Install python/pip
-ENV PYTHONUNBUFFERED=1
-RUN ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip
+

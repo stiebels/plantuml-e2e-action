@@ -1,19 +1,18 @@
 #!/bin/sh -l
 set -e
 
+
 INPUT_PUML_VERSION="${1}"
-INPUT_PY2PUML_VERSION="${2}"
+INPUT_PIP_INSTALL_DEPS_CMD="${2}"
 INPUT_PATH="${3}"
 INPUT_MODULE="${4}"
 INPUT_OUTPUT_DIR="${5}"
 
 
 # Generating the PUML file from the Python module
-if [ "$INPUT_PY2PUML_VERSION" = "latest" ]; then
-	pip install py2puml --upgrade
-else
-	pip install py2puml=="${INPUT_PY2PUML_VERSION}"
-fi
+pip install py2puml
+
+eval "${INPUT_PIP_INSTALL_DEPS_CMD}"
 
 mkdir -p "${INPUT_OUTPUT_DIR}"
 py2puml "${INPUT_PATH}" "${INPUT_MODULE}" > "${INPUT_OUTPUT_DIR}"/"${INPUT_MODULE}".puml
