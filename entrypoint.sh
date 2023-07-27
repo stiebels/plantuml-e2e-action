@@ -8,7 +8,7 @@ INPUT_OUTPUT_DIR="${5}"
 
 
 if [ "$INPUT_PY2PUML_VERSION" = "latest" ]; then
-	pip install py2puml
+	pip install py2puml --upgrade
 else
 	pip install py2puml=="${INPUT_PY2PUML_VERSION}"
 fi
