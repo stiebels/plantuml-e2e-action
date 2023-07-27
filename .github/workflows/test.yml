@@ -25,7 +25,7 @@ jobs:
         uses: ./
         with:
           puml_version: "latest"
-          py2puml_version: "latest"
+          pip_install_deps_cmd: "pip install -r tests/requirements.txt"
           path: "tests"
           module: "tests"
           output_dir: "diagrams"
