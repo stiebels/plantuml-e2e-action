@@ -1,4 +1,4 @@
-name: PlantUML Action
+name: PlantUML End-to-End Action
 description: GitHub Action for drawing UML diagrams with PlantUML
 inputs:
   puml_version:
