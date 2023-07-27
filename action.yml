@@ -1,5 +1,5 @@
 name: PlantUML End-to-End Action
-description: GitHub Action for drawing UML diagrams with PlantUML
+description: A GitHub Action for creating a PlantUML file from a Python module and exporting it as an image.
 inputs:
   puml_version:
     description: PlantUML software version
