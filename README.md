@@ -52,9 +52,8 @@ jobs:
     description: PlantUML software version
     default: "latest"
     required: true
-  py2puml_version:
-    description: py2puml python package version
-    default: "latest"
+  pip_install_deps_cmd:
+    description: The command that installs your project's dependencies require to have py2puml import your project. Typically, that'd be e.g. `pip install .` or `pip install .[docs]`. If the command doesn't install a version of `py2puml`, the latest version will be auto-installed.
     required: true
   path:
     description: the filepath to the domain following the py2puml definition
