@@ -16,6 +16,7 @@ jobs:
         run: bash -c 'shopt -s globstar nullglob; shellcheck **/*.sh'
   process:
     name: Process PlantUML diagram
+    needs: [shellcheck]
     runs-on: ubuntu-latest
     env:
         MODULE: "tests"
