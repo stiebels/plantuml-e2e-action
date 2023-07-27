@@ -17,13 +17,20 @@ jobs:
   process:
     name: Process PlantUML diagram
     runs-on: ubuntu-latest
+    env:
+        MODULE: "tests"
+        OUTPUT_DIR: "diagrams"
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
       - name: Build & render diagram
         uses: ./
         with:
-          args: "diagrams tests tests latest"
+          puml_version: "latest"
+          py2puml_version: "latest"
+          path: "tests"
+          module: ${{ env.MODULE }}
+          output_dir: ${{ env.OUTPUT_DIR }}
       - name: Display diagram
         run: |
-          cat diagrams/tests.png
+          cat ${{ env.OUTPUT_DIR }}/${{ env.MODULE }}.png
