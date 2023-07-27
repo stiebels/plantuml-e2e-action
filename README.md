@@ -29,8 +29,8 @@ jobs:
       - name: Build & render diagram
         uses: stiebels/plantuml-e2e-action@main
         with:
-          puml_version: "0.7.2"
-          py2puml_version: "1.2023.7"
+          puml_version: "1.2023.7"
+          py2puml_version: "0.7.2"
           path: "tests"
           module: "tests"
           output_dir: "diagrams"
