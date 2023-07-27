@@ -1,4 +1,4 @@
-# PlantUML Action
+# PlantUML End-to-End Action
 A GitHub Action for creating a PlantUML file from a Python module and exporting it as an image.
 
 ## Python ➡️ PlantUML ➡️ PNG </b>
