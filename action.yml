@@ -3,7 +3,8 @@ description: GitHub Action for drawing UML diagrams with PlantUML
 inputs:
   puml_version:
     description: PlantUML software version
-    required: false
+    default: "latest"
+    required: true
   py2puml_version:
     description: py2puml python package version
     default: "latest"
@@ -21,6 +22,12 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - ${{ inputs.puml_version }}
+    - ${{ inputs.py2puml_version }}
+    - ${{ inputs.path }}
+    - ${{ inputs.module }}
+    - ${{ inputs.output_dir }}
 branding:
   color: green
   icon: code

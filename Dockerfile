@@ -1,5 +1,6 @@
 FROM alpine:3.11
 
+# Install plantuml dependencies as well as python
 RUN apk add --no-cache openjdk11-jre graphviz ttf-droid ttf-droid-nonlatin python3
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
