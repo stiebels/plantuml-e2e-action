@@ -26,11 +26,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Build & render diagram
         uses: stiebels/plantuml-e2e-action@main
         with:
           puml_version: "1.2023.7"
-          py2puml_version: "0.7.2"
+          pip_install_deps_cmd: "pip install -r tests/requirements.txt"
           path: "tests"
           module: "tests"
           output_dir: "diagrams"
