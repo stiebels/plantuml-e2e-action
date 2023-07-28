@@ -25,18 +25,18 @@ else
 	echo "File found: ${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.puml"
 fi
 
-# Generating the PNG file from the PUML file
+# Generating the SVG file from the PUML file
 if [ "$INPUT_PUML_VERSION" = "latest" ]; then
 	wget -O /tmp/plantuml.jar "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download"
 else
 	wget -O /tmp/plantuml.jar "http://sourceforge.net/projects/plantuml/files/plantuml.${INPUT_PUML_VERSION}.jar/download"
 fi
-java -jar /tmp/plantuml.jar "${INPUT_OUTPUT_DIR}"/"${INPUT_MODULE}".puml -o ../"${INPUT_OUTPUT_DIR}"
+java -jar /tmp/plantuml.jar "${INPUT_OUTPUT_DIR}"/"${INPUT_MODULE}".puml -o ../"${INPUT_OUTPUT_DIR}" -tsvg
 
-# Check if a PNG file is found at the expected location
-if [ ! -f "${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.png" ]; then
-	echo "File not found: ${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.png"
+# Check if a SVG file is found at the expected location
+if [ ! -f "${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.svg" ]; then
+	echo "File not found: ${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.svg"
 	exit 1
 else
-	echo "File found: ${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.png"
+	echo "File found: ${INPUT_OUTPUT_DIR}/${INPUT_MODULE}.svg"
 fi
