@@ -12,7 +12,6 @@ The following workflow generates a PlantUML diagram from the Python module `test
 in the `tests` directory and exports it as PUML file as well as SVG to the `diagrams` directory.
 Subsequently, the changed files are committed and pushed to the repository.
 
-Note that passing of the parameters `puml_version` as well as `py2puml_version` is optional and both default to `latest`. However, it's recommended to pin down their versions.
 ```yaml
 name: My workflow
 on:
@@ -51,7 +50,7 @@ jobs:
 - See [here](https://github.com/lucsorel/py2puml#cli) for a clear explanation on `path` and `module`, following the definition of `py2puml`.
 ```yaml
   puml_version:
-    description: PlantUML software version
+    description: PlantUML software version. Whereas it defaults to "latest", it's recommended to pin down the PlantUML version.
     default: "latest"
     required: true
   pip_install_deps_cmd:
