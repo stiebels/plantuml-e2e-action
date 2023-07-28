@@ -1,15 +1,15 @@
 # PlantUML End-to-End Action
 A GitHub Action for creating a PlantUML file from a Python module and exporting it as an image.
 
-## Python ➡️ PlantUML ➡️ PNG </b>
-This repository was forked from [this repo](https://github.com/Timmy/plantuml-action/tree/5f5f57e2ec41225b88f37aa1dc15edda188b47c8) and extends it by automating the end-to-end process, from generating the PlantUML diagram based on Python modules to exporting that diagram as PNG for ease of access and in-repo rendering.
+## Python ➡️ PlantUML ➡️ SVG </b>
+This repository was forked from [this repo](https://github.com/Timmy/plantuml-action/tree/5f5f57e2ec41225b88f37aa1dc15edda188b47c8) and extends it by automating the end-to-end process, from generating the PlantUML diagram based on Python modules to exporting that diagram as SVG for ease of access and in-repo rendering.
 
 ## Usage
 Use it from the GitHub Actions marketplace.
 
 ### Example workflow
 The following workflow generates a PlantUML diagram from the Python module `tests`
-in the `tests` directory and exports it as PUML file as well as PNG to the `diagrams` directory.
+in the `tests` directory and exports it as PUML file as well as SVG to the `diagrams` directory.
 Subsequently, the changed files are committed and pushed to the repository.
 
 Note that passing of the parameters `puml_version` as well as `py2puml_version` is optional and both default to `latest`. However, it's recommended to pin down their versions.
@@ -61,7 +61,7 @@ jobs:
     description: the module name of the domain following the py2puml definition
     required: true
   output_dir:
-    description: the directory where the PNG should be saved to. File names default to the module name, but differ by file extension (.puml/.png).
+    description: the directory where the SVG should be saved to. File names default to the module name, but differ by file extension (.puml/.svg).
     default: diagrams
     required: true
 ```
